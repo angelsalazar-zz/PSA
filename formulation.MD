@@ -1,10 +1,10 @@
 # State Description
 
-Robot (x, y)
+Board size NxN
 
-Board (N, N)
+Set of tiles locations
 
-Number of Things To Clean
+Board Configuration
 
 # Inital State
 

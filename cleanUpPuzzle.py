@@ -18,35 +18,31 @@ FIND_DIAMOND = 'FIND_DIAMOND'
 FIND_DIAMOND_IN_EDGE = 'FIND_DIAMOND_IN_EDGE'
 CLEAN = 'CLEAN'
 
-from board import Board
-
 class CleanUpPuzzle(Problem):
     def __init__(self, initial, goal):
         Problem.__init__(self, initial, goal)
         self.all_actions = [FIND_DIAMOND, FIND_DIAMOND_IN_EDGE, CLEAN]
         
     def actions(self, state):
-         actions = []
+        actions = []
         
-        for action in self.all_actions:
+        # for action in self.all_actions:
 
-            if action == 'M1M' and \
-               not illegal_state(new_state(state,1,0), self.misycan):
-                actions.append('M1M')
-            elif action == 'M2M' and \
-                 not illegal_state(new_state(state,2,0), self.misycan):
-                actions.append('M2M')
-            elif action == 'M1C' and \
-                 not illegal_state(new_state(state,0,1), self.misycan):
-                actions.append('M1C')
-            elif action == 'M2C' and \
-                 not illegal_state(new_state(state,0,2), self.misycan):
-                actions.append('M2C')
-            elif action == 'M1M1C' and \
-                 not illegal_state(new_state(state,1,1), self.misycan):
-                actions.append('M1M1C')
-
-        
+        #     if action == 'M1M' and \
+        #        not illegal_state(new_state(state,1,0), self.misycan):
+        #         actions.append('M1M')
+        #     elif action == 'M2M' and \
+        #          not illegal_state(new_state(state,2,0), self.misycan):
+        #         actions.append('M2M')
+        #     elif action == 'M1C' and \
+        #          not illegal_state(new_state(state,0,1), self.misycan):
+        #         actions.append('M1C')
+        #     elif action == 'M2C' and \
+        #          not illegal_state(new_state(state,0,2), self.misycan):
+        #         actions.append('M2C')
+        #     elif action == 'M1M1C' and \
+        #          not illegal_state(new_state(state,1,1), self.misycan):
+        #         actions.append('M1M1C')        
         return actions
 
 
