@@ -2,7 +2,7 @@ import random
 
 random.randint(0, 1)
 
-def buildBoard(size, cellContent = None):
+def buildGrid(size, cellContent = None):
     rows = list()
     for _ in range(size):
         cols = list()
@@ -15,16 +15,19 @@ def buildBoard(size, cellContent = None):
     return rows
 
 class Board:
-    def __init__(self, size):
+    def __init__(self, size = 5, grid = None):
         self.SIZE = size
-        self.grid = buildBoard(size)
+        if grid:
+            self.grid = grid
+        else:
+            self.grid = buildGrid(size)
 
     def toggleCell(self, position):
         row, col = position
         # affected cells (Order matters)
         cells = [
                             (row - 1, col),     
-            (row, col - 1), (row, col),         (row, col + 1),
+            (row, col - 1),                 (row, col + 1),
                             (row + 1, col)    
         ]
 
@@ -45,14 +48,17 @@ class Board:
             rows.append(row.copy())
         return rows
 
-    def display(self):
+    def toString(self):
         rows = []
         for row in self.grid:
             r = []
             for cell in row:
-                r.append('%s \t' % str(cell))
+                r.append('    {0!s:8}'.format(cell))
             rows.append('|'.join(r))
-        print('\n'.join(rows))
+        return '\n'.join(rows)
+
+    def display(self):
+        print(self.toString())
             
 
 
