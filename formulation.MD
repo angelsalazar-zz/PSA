@@ -1,35 +1,29 @@
 # State Description
 
 Board size NxN
-
-Set of tiles locations
-
-Board Configuration
+Cleaner 
 
 # Inital State
 
-Board (N, N, ThingsToClean)
+Board(SIZE)
 
 # Actions
 
-* FIND_DIAMOND
-* FIND_DIAMOND_IN_EDGE
-* CLEAN
+* TAB
 
 # Transition model
 
 | Operator | Pre-conditions | Changes |
 | -------- | -------------- | ------- |
-| `findDiamond(row, col)` | TO DO | TO DO |
-| `findDiamondInEdge(row, rol)` | TO DO | TO DO |
+| `tab(row, col)` | TO DO | TO DO |
 
 # Goal State
 
 ```py
 def goal(board):
 	for row in board:
-		for cell in row:
-			if cell:
+		for cellIsOn in row:
+			if cellIsOn:
 				return false
 	return true
 ```
