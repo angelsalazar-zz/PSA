@@ -1,31 +1,25 @@
-from search import ( # Bases for problem building
-    Problem, Node, Graph, UndirectedGraph,
-    SimpleProblemSolvingAgentProgram,
-    GraphProblem
-)
+from search import Problem
 
-from search import ( # Uninformed search algorithms
-    tree_search, graph_search, best_first_graph_search,
-    breadth_first_tree_search, breadth_first_search,
-    depth_first_tree_search, depth_first_graph_search,
-    depth_limited_search, iterative_deepening_search,
-    uniform_cost_search,
-    compare_searchers
-)
-
-#### allow actions
-TAB = 'TAB'
 from board import toggleCell
 from board import getAffectedCellsByPosition
 from board import parseBoard
 
+
+#### allow actions
+TAB = 'TAB'
+
 class CleanUpPuzzle(Problem):
     def __init__(self, initial, goal):
         Problem.__init__(self, initial, goal)
-        
+       
+    # actions
+    # computes all possible movements
+    # that can be perfomed on the state
     def actions(self, state):
         return getPossibleMovements(state)
 
+    # result
+    # changes the state based on a given action
     def result(self, state, action):
         return toggleCell(state, action[1])
 
@@ -42,5 +36,4 @@ def getPossibleMovements(state):
                 if board[cell[0]][cell[1]] == '1':
                     actions.append((TAB, (row, col)))
                     break
-    
     return actions

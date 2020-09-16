@@ -1,13 +1,13 @@
 import random
 
+# getAffectedCellsByPosition
+# retrieves all affected cells based on the given position
+# @param {Tuple} position
+# @param {Integer} size
+# @return {List<Tuple>}
 def getAffectedCellsByPosition(position, size):
     row, col = position
     allAffectedCells = []
-    # allAffectedCells = [
-    #                     (row - 1, col),     
-    #     (row, col - 1),                 (row, col + 1),
-    #                     (row + 1, col)    
-    # ]
     # order matters
     if row - 1 >= 0: allAffectedCells.append((row - 1, col))
     if col - 1 >= 0: allAffectedCells.append((row, col - 1))
@@ -16,8 +16,14 @@ def getAffectedCellsByPosition(position, size):
 
     return allAffectedCells
 
-# if filler is provided
-# tiles are meant to have a fix position for testing porpuses
+# buildGrid
+# creates a string representation of a matrix based on the given size
+# if filler is provided, tiles are not placed randomly
+# filler is meant to create specific matrix configurations
+# @param {Integer} size (default: 5)
+# @param {Integer} maxTiles (default: 10)
+# @param {Function} filler (default: None)
+# @return {String}
 def buildGrid(size = 5, maxTiles = 10, filler = None):
     tileCounter = 0
     rows = list()
@@ -37,6 +43,11 @@ def buildGrid(size = 5, maxTiles = 10, filler = None):
         rows.append('|'.join(row))
     return '\n'.join(rows)
 
+# toggleCell
+# toggles the cell's value based on a given location in the given encoded board
+# @param {String} board
+# @param {Tuple} position
+# @return {String}
 def toggleCell(board, position):
     rows = board.split('\n')
     affectedCells = getAffectedCellsByPosition(position, len(rows))
@@ -46,6 +57,11 @@ def toggleCell(board, position):
         rows[cell[0]] = '|'.join(row)
     return '\n'.join(rows)
 
+
+# parseBoard
+# parses the encoded board into a List<List<String>>
+# @param {String} board
+# @return {List<List<String>>}
 def parseBoard(board):
     rows = []
     encodedRows = board.split('\n')
