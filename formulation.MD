@@ -1,35 +1,35 @@
-# State Description
+# Problem Formulation
+
+## State Description
 
 Board size NxN
 Cleaner 
 
-# Inital State
+## Inital State
 
 Board(SIZE)
 
-# Actions
+## Actions
 
 * TAB
 
-# Transition model
+## Transition model
 
 | Operator | Pre-conditions | Changes |
 | -------- | -------------- | ------- |
-| `tab(row, col)` | TO DO | TO DO |
+| `tab(row, col)` | (row - 1, col) == true OR <br> (row, col - 1) == true OR <br> (row, col + 1) == true OR <br> (row + 1, col) == true | toggle value at (row - 1, col) AND <br> toggle value at (row, col - 1) AND <br> toggle value at (row, col + 1) AND <br> toggle value at (row + 1, col) |
 
-# Goal State
+## Goal State
 
-```py
-def goal(board):
-	for row in board:
-		for cellIsOn in row:
-			if cellIsOn:
+```
+sub allCellsAreEmpty(board)
+	for row in board
+		for cell in row
+			if cell is true
 				return false
 	return true
 ```
 
 # Path Coast
 
-* find diamond + 1
-* find diamond in edge + 1
-* clean + 1
+* TAB = +1
