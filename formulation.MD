@@ -3,7 +3,6 @@
 ## State Description
 
 Board size NxN
-Cleaner 
 
 ## Inital State
 
@@ -17,7 +16,7 @@ Board(SIZE)
 
 | Operator | Pre-conditions | Changes |
 | -------- | -------------- | ------- |
-| `tab(row, col)` | (row - 1, col) == true OR <br> (row, col - 1) == true OR <br> (row, col + 1) == true OR <br> (row + 1, col) == true | toggle value at (row - 1, col) AND <br> toggle value at (row, col - 1) AND <br> toggle value at (row, col + 1) AND <br> toggle value at (row + 1, col) |
+| `tab(row, col)` | (row - 1, col) == true OR <br> (row, col - 1) == true OR <br> (row, col + 1) == true OR <br> (row + 1, col) == true | toggle value at (row - 1, col) AND <br> toggle value at (row, col - 1) AND <br> toggle value at (row, col + 1) AND <br> toggle value at (row + 1, col)  on board |
 
 ## Goal State
 
@@ -30,6 +29,6 @@ sub allCellsAreEmpty(board)
 	return true
 ```
 
-# Path Coast
+# Path Cost
 
 * TAB = +1
