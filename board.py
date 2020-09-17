@@ -21,11 +21,9 @@ def getAffectedCellsByPosition(position, size):
 # if filler is provided, tiles are not placed randomly
 # filler is meant to create specific matrix configurations
 # @param {Integer} size (default: 5)
-# @param {Integer} maxTiles (default: 10)
 # @param {Function} filler (default: None)
 # @return {String}
-def buildGrid(size = 5, maxTiles = 10, filler = None):
-    tileCounter = 0
+def buildGrid(size = 5, filler = None):
     rows = list()
     for r in range(size):
         row = list()
@@ -33,13 +31,7 @@ def buildGrid(size = 5, maxTiles = 10, filler = None):
             if filler:
                 row.append(filler(r, c))
             else:
-                strBit = '0'
-                if tileCounter < maxTiles:
-                    bit = random.randint(0, 1)
-                    if (bit > 0):
-                        tileCounter += 1
-                        strBit = str(bit)
-                row.append(strBit)
+                row.append('0')
         rows.append('|'.join(row))
     return '\n'.join(rows)
 

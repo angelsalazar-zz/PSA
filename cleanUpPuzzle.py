@@ -1,5 +1,4 @@
 from search import Problem
-
 from board import toggleCell
 from board import getAffectedCellsByPosition
 from board import parseBoard
